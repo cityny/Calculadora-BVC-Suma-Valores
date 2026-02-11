@@ -5,12 +5,20 @@ import ResultsDisplay from './components/ResultsDisplay';
 import { Calculator, ReceiptText, TrendingUp, Sparkles, MessageCircle } from 'lucide-react';
 
 function App() {
-    // Estado para los inputs del formulario
-    const [formData, setFormData] = useState({
-        cantidad: 100,
-        precio: 10,
-        esOtroBanco: false,
+    // Estado inicial cargado desde localStorage o valores por defecto
+    const [formData, setFormData] = useState(() => {
+        const saved = localStorage.getItem('bvc_calculator_data');
+        return saved ? JSON.parse(saved) : {
+            cantidad: 100,
+            precio: 10,
+            esOtroBanco: false,
+        };
     });
+
+    // Guardar en localStorage cada vez que el formulario cambia
+    React.useEffect(() => {
+        localStorage.setItem('bvc_calculator_data', JSON.stringify(formData));
+    }, [formData]);
 
     // Cálculo memorizado para evitar recálculos innecesarios
     const results = useMemo(() => {
@@ -56,8 +64,7 @@ function App() {
                 {/* Sección de Introducción Movil-First */}
                 <section className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
                     <p className="text-slate-600 text-sm md:text-base leading-relaxed">
-                        Calcula rápidamente el desglose financiero de tus operaciones en la Bolsa de Valores de Caracas.
-                        Introduce los datos de tu orden para ver comisiones, impuestos y totales.
+                        Una herramienta financiera de alto rendimiento diseñada específicamente para inversores y casas de bolsa que operan en la Bolsa de Valores de Caracas (BVC). Esta aplicación ofrece un cálculo exacto, instantáneo y profesional de las comisiones y cargos asociados a la compra/venta de títulos valores con la empresa "Suma Valores".
                     </p>
                 </section>
 

@@ -41,6 +41,7 @@ El núcleo del proyecto (`calculator.js`) implementa reglas precisas basadas en 
 ---
 
 ## 🚀 Características Principales
+- **Persistencia de Datos:** Utiliza `localStorage` para guardar tus últimos valores ingresados, asegurando que no pierdas tu trabajo al recargar la página.
 - ✅ **Cálculo en Tiempo Real:** Sin botones de "Calcular"; todo se actualiza mientras escribes.
 - ✅ **Mobile Optimized:** Diseño 100% responsivo con botones y triggers táctiles de gran tamaño.
 - ✅ **Efectos Premium:** Micro-animaciones de zoom in y sombras dinámicas en las tarjetas de resultados.
