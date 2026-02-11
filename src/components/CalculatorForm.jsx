@@ -13,6 +13,7 @@ import { Hash, CircleDollarSign, Building2 } from 'lucide-react';
  * @param {Function} props.onChange - Función para actualizar el estado en el componente padre.
  */
 const CalculatorForm = ({ data, onChange }) => {
+    const [showBankTooltip, setShowBankTooltip] = React.useState(false);
 
     /**
      * ## Manejo de Eventos: handleChange
@@ -92,16 +93,32 @@ const CalculatorForm = ({ data, onChange }) => {
                 Componente visual (Toggle) para activar el recargo del 1.5%.
                 Utiliza clases 'peer' para animar el cambio de estado.
             */}
-            <div className="flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-dotted border-slate-300">
+            <div className="flex items-center justify-between p-4 bg-slate-100 rounded-xl border border-dotted border-slate-500">
                 <div className="flex items-center gap-3">
-                    <div className="bg-white p-2 rounded-lg shadow-sm border border-slate-200">
+                    <div className="bg-white p-2 rounded-lg shadow-sm border border-slate-400">
                         <Building2 size={20} className="text-slate-500" />
                     </div>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col relative">
                         <span className="text-sm font-bold text-slate-700">Fondos de Otros Bancos (No BNC)</span>
-                        <span className="text-[10px] text-slate-500 uppercase tracking-tight" title="Aplica recargo del 1.55% si el pago proviene de una entidad distinta al BNC">
+                        <span
+                            className={`text-[10px] uppercase tracking-tight cursor-pointer underline decoration-dotted transition-all duration-200 ${showBankTooltip
+                                ? 'text-slate-950 font-bold decoration-slate-900'
+                                : 'text-slate-700 decoration-slate-300 hover:text-slate-900 hover:decoration-slate-400'
+                                }`}
+                            onMouseEnter={() => setShowBankTooltip(true)}
+                            onMouseLeave={() => setShowBankTooltip(false)}
+                            onClick={() => setShowBankTooltip(!showBankTooltip)}
+                        >
                             Si el pago no es BNC aplica 1.5%
                         </span>
+
+                        {/* Custom Tooltip */}
+                        {showBankTooltip && (
+                            <div className="absolute top-full left-0 mt-1 w-56 p-2 bg-slate-900 text-white text-[10px] rounded-lg shadow-xl z-50 animate-in fade-in slide-in-from-top-1 duration-150 normal-case tracking-normal font-normal">
+                                Aplica recargo del 1.5% si el pago proviene de una entidad distinta al BNC (transferencias nacionales o internacionales).
+                                <div className="absolute bottom-full left-4 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-b-[6px] border-b-slate-900"></div>
+                            </div>
+                        )}
                     </div>
                 </div>
                 <label className="relative inline-flex items-center cursor-pointer">
@@ -112,13 +129,13 @@ const CalculatorForm = ({ data, onChange }) => {
                         onChange={handleChange}
                         className="sr-only peer"
                     />
-                    <div className="w-11 h-6 bg-slate-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                    <div className="w-11 h-6 bg-slate-300 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-400 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-700"></div>
                 </label>
             </div>
 
             {/* Mensaje Informativo adicional */}
-            <div className="text-[10px] text-slate-400 italic">
-                * Los campos se validan automáticamente. El cálculo incluye Comisión (3%) e IVA (16%).
+            <div className="text-[10px] text-slate-400 italic transition-all duration-300 hover:text-slate-900 hover:font-bold cursor-help select-none pt-2 border-t border-slate-100">
+                * Los campos se validan automáticamente. El cálculo incluye Comisión (3%) de la casa de bolsa Suma Valores e IVA (16%).
             </div>
         </form>
     );

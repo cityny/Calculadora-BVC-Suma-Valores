@@ -5,7 +5,9 @@ export const COMISION_BASE = 0.03; // 3%
 export const IVA_TASA = 0.16; // 16% sobre la comisión
 export const REGISTRO_PORC = 0.001; // 0.1%
 export const REGISTRO_MIN = 5.00; // Bs
-export const RECARGO_OTRO_BANCO_TASA = 0.0155; // 1.55% (Fondos NO-BNC)
+export const RECARGO_OTRO_BANCO_TASA = 0.015; // 1.5% (Fondos NO-BNC)
+export const RET_IVA = 0; // Retención IVA
+export const RET_ISLR = 0; // Retención ISLR
 
 /**
  * Calcula el desglose financiero de una operación en la BVC.
@@ -47,6 +49,8 @@ export function calculateFinancials(cantidad, precio, esOtroBanco) {
     iva,
     registro,
     recargo,
+    retIva: RET_IVA,
+    retIslr: RET_ISLR,
     totalFinal,
     detalles: {
       cantidad,
