@@ -67,7 +67,7 @@ const CalculatorForm = ({ data, onChange }) => {
             <div className="space-y-2">
                 <label htmlFor="precio" className="flex items-center gap-2 text-sm font-semibold text-slate-700">
                     <CircleDollarSign size={16} className="text-slate-400" />
-                    Precio del Título/Valor (Bs)
+                    Precio del Título / Valor (Bs)
                 </label>
                 <div className="relative">
                     <input
