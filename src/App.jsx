@@ -126,6 +126,13 @@ function App() {
                     <p className="text-center text-slate-400 text-[10px] mt-8 uppercase tracking-widest">
                         Calculadora Profesional para Inversionistas BVC
                     </p>
+                    <div className="flex justify-center mt-4">
+                        <img
+                            src="https://komarev.com/ghpvc/?username=cityny-calculadora-bvc&color=blue&style=flat-square&label=VISITAS"
+                            alt="Contador de Visitas"
+                            className="opacity-80 hover:opacity-100 transition-opacity"
+                        />
+                    </div>
                 </footer>
             </main>
         </div>

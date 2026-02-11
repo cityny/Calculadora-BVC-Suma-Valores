@@ -4,6 +4,7 @@
 [![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)](https://vitejs.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 [![Netlify Status](https://img.shields.io/badge/Netlify-Success-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)](https://calculadorave.netlify.app/)
+[![Visitas](https://komarev.com/ghpvc/?username=cityny-calculadora-bvc&color=blue&style=for-the-badge&label=VISITAS)](https://calculadorave.netlify.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 Una herramienta financiera de alto rendimiento diseñada específicamente para inversores y casas de bolsa que operan en la **Bolsa de Valores de Caracas (BVC)**. Esta aplicación ofrece un cálculo exacto, instantáneo y profesional de las comisiones y cargos asociados a la compra/venta de títulos valores con la empresa "Suma Valores".
