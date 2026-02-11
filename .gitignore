@@ -1,0 +1,38 @@
+# Descripcion: Archivo .gitignore para Calculadora BVC - Suma Valores
+
+# Dependencias (NUNCA subir esta carpeta a GitHub)
+node_modules/
+.pnp
+.pnp.js
+
+# Carpeta de construcción / Producción
+dist/
+dist-ssr/
+*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Entorno (Variables sensibles)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Configuración de Editores (VS Code, JetBrains)
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Sistema Operativo
+.DS_Store
+Thumbs.db
